@@ -1,0 +1,14 @@
+create master and target nod
+create connection between master and node
+create playbook with "script" module (it going to execute shell script on remote host, extension should be .yml or yaml)
+create shell script(copy an dpaste from below, extension should be .sh)
+
+
+
+#!/bin/bash
+sudo yum install httpd -y
+sudo systemctl start httpd
+sudo wget -P /var/www/html https://www.free-css.com/assets/files/free-css-templates/download/page284/pet-shop.zip
+sudo unzip -o /var/www/html/pet-shop.zip
+sudo cp -rf /var/www/html/pet-shop-website-template/* /var/www/html/
+sudo systemctl restart httpd.service
